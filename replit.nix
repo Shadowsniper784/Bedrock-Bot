@@ -1,6 +1,7 @@
 { pkgs }: {
 	deps = with pkgs; [
-		nodejs-16_x
+		nodejs-14_x
+    nodePackages.typescript
 		nodePackages.typescript-language-server
 	];
 }

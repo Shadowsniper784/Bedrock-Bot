@@ -1,4 +1,5 @@
 import bewss from "../bewss"
+import express from "express"
 import Websocket from 'ws'
 import { EventEmitter } from 'events'
 
@@ -12,12 +13,17 @@ class serverManager extends EventEmitter {
   constructor (bewss: bewss, port: number) {
     super()
     this.bewss = bewss
+    this.app = express()
     this.port = port
   }
 
   async onEnabled(): Promise<void> {
     this.startProcessTitle()
     await this.createServer()
+    this.app.get('/', (req,res) => {
+      res.send('Connected')
+    })
+    this.app.listen(this.port)
   }
 
   async onDisabled(): Promise<void> {

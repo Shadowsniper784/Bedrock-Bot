@@ -1,8 +1,5 @@
-run = "node index.js"
-entrypoint = "index.js"
+run = "npm run build"
 
-[interpreter]
-command = [ "prybar-nodejs","-i", "-ps1", "\u001b[33m\uEEA7\u001b[00m "]
 
 [packager]
 language = "nodejs"
@@ -14,6 +11,13 @@ guessImports = true
 [languages.javascript]
 pattern = "**/*.js"
 syntax = "javascript"
+
+[languages.typescript]
+pattern = "**/*.ts"
+syntax = "typescript"
+
+[languages.typescript.languageServer]
+start = [ "typescript-language-server", "--stdio" ]
 
 [languages.javascript.languageServer]
 start = [ "typescript-language-server", "--stdio" ]

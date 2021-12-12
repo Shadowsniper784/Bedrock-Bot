@@ -24,7 +24,7 @@ class bewss {
   private agentManager: agentManager
   private scoreboardManager: scoreboardManager
   private eventManager: eventManager
-  private port = 8080
+  private port = process.env.PORT || 8080
 
   constructor(options?: bewssOptions) {
     if (options) {
