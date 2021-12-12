@@ -1,0 +1,15 @@
+name: NodeJS with Typescript
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build
+      run: |
+        npm run build
