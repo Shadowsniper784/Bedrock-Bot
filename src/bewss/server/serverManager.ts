@@ -15,7 +15,7 @@ class serverManager extends EventEmitter {
     super()
     this.bewss = bewss
     this.app = express()
-    this.port = parseInt(port)
+    this.port = parseInt(port.toString?.())
   }
 
   async onEnabled(): Promise<void> {
