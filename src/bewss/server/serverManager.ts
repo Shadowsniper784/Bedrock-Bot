@@ -9,12 +9,13 @@ class serverManager extends EventEmitter {
   private server: Websocket
   private port: number
   private inv
+  private app: any
 
-  constructor (bewss: bewss, port: number) {
+  constructor (bewss: bewss, port: number | string) {
     super()
     this.bewss = bewss
     this.app = express()
-    this.port = port
+    this.port = parseInt(port)
   }
 
   async onEnabled(): Promise<void> {
